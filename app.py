@@ -3,7 +3,7 @@ from libpy import DataProvider, PreProcessor, Modeller
 import pandas as pd
 
 data = pd.read_csv(
-    "amazon.csv",
+    "amazon.zip",
     usecols=['product_id', 'product_title', 'star_rating',
                 'review_body', 'review_date'])
 
