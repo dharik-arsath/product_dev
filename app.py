@@ -2,6 +2,7 @@ import streamlit as st
 from libpy import DataProvider, PreProcessor, Modeller
 import pandas as pd
 
+st.title("Sethu institute of Technology")
 data = pd.read_csv(
     "amazon.zip",
     usecols=['product_id', 'product_title', 'star_rating',
