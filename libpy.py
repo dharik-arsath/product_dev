@@ -57,13 +57,13 @@ class Processor:
 
 class Modeller:
     def __init__(self, load_small=True):
-        
-        if load_small:
-            try:
-                self.nlp = spacy.load("en_core_web_sm")
-        except: 
+        try:
+            self.nlp = spacy.load("en_core_web_sm")
+        except:
             spacy.cli.download("en_core_web_sm")
+            self.nlp = spacy.load("en_core_web_sm")
             
+        if load_small:
             self.nlp = spacy.load("en_core_web_sm")
         else:
             self.nlp = spacy.load("en_core_web_lg")
