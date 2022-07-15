@@ -30,8 +30,11 @@ new_data = data.copy()
 new_data.dropna(inplace=True)
 
 
-st.title("Product Review Analyzer")
-prod_id = st.selectbox("Product_id", data.product_id)
+prod_name = st.selectbox("ProductName", new_data.product_title)
+print(prod_name)
+prod_id = new_data.loc[new_data.product_title.isin([prod_name]), "product_id"].unique()[0]
+
+# prod_id = st.selectbox("Product_id", data.product_id)
 
 
 new_data = data
@@ -50,4 +53,3 @@ print(f"Reviews For {product_title}")
 tops = model.build_model(revs.review_body, n_components=5)
 for each in tops:
     st.text(each)
-    
